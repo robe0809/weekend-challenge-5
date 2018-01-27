@@ -9,4 +9,5 @@ let swapiSchema = swapiSchemaModule;
 let Swapi = mongoose.model('Swapi', swapiSchema);
 
 
+
 module.exports = router;

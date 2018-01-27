@@ -5,7 +5,11 @@ myApp.controller('searchController', ['SwapiService', function (SwapiService) {
 
     self.resources = ["Films", "People", "Planets", "Species", "Starships", "Vehicles" ];
 
-    self.searchResource = function () { 
+    self.addFavorites = function (favorites) {
+        SwapiService.addFavorites(favorites);
+    }
+    
+    self.searchResource = function (resource) { 
         console.log(self.swapi.list);
         self.films = self.swapi.list;
     }

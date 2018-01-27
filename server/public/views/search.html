@@ -1,10 +1,30 @@
-<select ng-model="vm.selectedItem" ng-change="vm.searchResource()">
+<select ng-model="vm.selectedItem" ng-change="vm.searchResource(vm.selectedItem)">
     <option ng-repeat="resource in vm.resources">{{resource}}</option>
 </select>
+<input type="text" ng-model="searchText" placeholder="Keywords" >
 
-<ul ng-repeat="film in vm.films">
-    <li><label>Title: </label>{{film.title}}</li>
-    <li><label>Director: </label>{{film.director}}</li>
-    <li><label>Producer: </label>{{film.producer}}</li>
-    <li><label>Release Date: </label>{{film.release_date}}</li>
-</ul>
+<!-- films HTML -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-repeat="film in vm.films | filter:searchText">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{film.title}}</span>
+            <span class="md-subhead"> Released: {{film.release_date}}</span>
+            <ul>
+                <li><label>Director: </label>{{film.director}}</li>
+                <li><label>Producer: </label>{{film.producer}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.addFavorites(film)">Add Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>

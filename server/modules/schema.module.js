@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 let swapiSchema = new mongoose.Schema(
     {
-        favorites: {type: String, required: true}
+        favorites: {type: String}
     }   
 )
 
