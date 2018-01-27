@@ -1,0 +1,10 @@
+<select ng-model="vm.selectedItem" ng-change="vm.searchResource()">
+    <option ng-repeat="resource in vm.resources">{{resource}}</option>
+</select>
+
+<ul ng-repeat="film in vm.films">
+    <li><label>Title: </label>{{film.title}}</li>
+    <li><label>Director: </label>{{film.director}}</li>
+    <li><label>Producer: </label>{{film.producer}}</li>
+    <li><label>Release Date: </label>{{film.release_date}}</li>
+</ul>
