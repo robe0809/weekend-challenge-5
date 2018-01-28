@@ -5,8 +5,8 @@ const swapiSchemaModule = require('../modules/schema.module.js');
 
 
 
-let swapiSchema = swapiSchemaModule;
-let Swapi = mongoose.model('Swapi', swapiSchema);
+let filmSchema = swapiSchemaModule;
+let Film = mongoose.model('Film', filmSchema);
 
 
 

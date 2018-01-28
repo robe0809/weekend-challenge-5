@@ -12,6 +12,7 @@ myApp.service('SwapiService', ['$http', function($http){
     const starships = "https://swapi.co/api/starships/";
     const vehicles = "https://swapi.co/api/vehicles/";
 
+    // getFilms through the API
     self.getFilms = function () {
         $http.get(films)
         .then(function (response) {
@@ -23,25 +24,39 @@ myApp.service('SwapiService', ['$http', function($http){
         });
     }
 
+// add favorites to database
+self.addFavorites = function (favorites) {
+    $http.post('/favorites', favorites)
+    .then(function (response) {
+        self.getFavorites();
+    })
+    .catch(function (response) {
+        console.log('error on service post', response);
+    })
+}
+    
+// get favorites from database
     self.getFavorites = function () {
         $http.get('/favorites')
         .then(function (response) {
-            self.favorite.list = response.data
+            console.log('getting favorites', response.data);
+            self.favorites.list = response.data
         })
         .catch(function (response) {
-            console.log('error on get favorites', error);
+            console.log('error on get favorites', response);
         });
     }
 
-    self.addFavorites = function (favorites) {
-        $http.post('/favorites', favorites)
+// remove favorites 
+    self.removeFavorites = function (favoritesId) {
+        $http.delete(`/favorites/${favoritesId}`)
         .then(function (response) {
+            console.log('delete favorites', response);
             self.getFavorites();
         })
         .catch(function (response) {
-            console.log('error on service post', response);
-        })
+            console.log('error on delete favorites', response);
+        });
     }
-
     self.getFilms();
 }]);

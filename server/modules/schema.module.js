@@ -1,9 +1,12 @@
 const mongoose = require('mongoose');
 
-let swapiSchema = new mongoose.Schema(
+let filmSchema = new mongoose.Schema(
     {
-        favorites: {type: String}
+        title: {type: String, required: true},
+        release_date: {type: Date},
+        director: {type: String, required: true},
+        producer: {type: String, required: true}
     }   
 )
 
-module.exports = swapiSchema;
+module.exports = filmSchema;
