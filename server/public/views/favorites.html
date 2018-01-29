@@ -4,49 +4,23 @@
     <div flex-xs flex-gt-xs="50" layout="column">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
         md-theme-watch
-        ng-repeat="film in vm.favorites.list">
+        ng-repeat="films in vm.favorites.list">
         <md-card-title>
             <md-card-title-text>
-            <span class="md-headline">{{film.title}}</span>
-            <span class="md-subhead"> Released: {{film.release_date}}</span>
+            <span class="md-headline">{{films.title}}</span>
+            <span class="md-subhead"> Released: {{films.release_date}}</span>
             <ul>
-                <li><label>Director: </label>{{film.director}}</li>
-                <li><label>Producer: </label>{{film.producer}}</li>
+                <li><label>Director: </label>{{films.director}}</li>
+                <li><label>Producer: </label>{{films.producer}}</li>
             </ul>
             </md-card-title-text>
             <md-card-title-media>
             <div class="md-media-lg card-media"></div>
             </md-card-title-media>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="vm.removeFavorites(film._id)">Remove Favorite</md-button>
+                <md-button ng-click="vm.removeFavorites(films._id)">Remove Favorite</md-button>
             </md-card-actions>
         </md-card-title>
         </md-card>
     </div>
 </md-content>
-
-    <!-- People -->
-    <md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
-            md-theme-watch
-            ng-repeat="people in vm.favorites.list">
-            <md-card-title>
-                <md-card-title-text>
-                <span class="md-headline">{{people.name}}</span>
-                <span class="md-subhead"> Released: {{people.birth_year}}</span>
-                <ul>
-                    <li><label>Sex: </label>{{people.gender}}</li>
-                    <li><label>Hair: </label>{{people.hair_color}}</li>
-                </ul>
-                </md-card-title-text>
-                <md-card-title-media>
-                <div class="md-media-lg card-media"></div>
-                </md-card-title-media>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-click="vm.removeFavorites(film._id)">Remove Favorite</md-button>
-                </md-card-actions>
-            </md-card-title>
-            </md-card>
-        </div>
-    </md-content>

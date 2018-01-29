@@ -9,12 +9,11 @@
     <div flex-xs flex-gt-xs="50" layout="column">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
         md-theme-watch
-        ng-repeat="films in vm.resourceArray | filter:searchText"
-        ng-if="vm.selectedItem === 'Films'" >
+        ng-repeat="films in vm.resourceArray | filter:searchText">
         <md-card-title>
             <md-card-title-text>
             <span class="md-headline">{{films.title}}</span>
-            <span class="md-subhead"> Released: {{films.release_date}}</span>
+            <span class="md-subhead"> Released: {{films.release_date | date}}</span>
             <ul>
                 <li><label>Director: {{films.director}}</li>
                 <li><label>Producer: {{films.producer}}</li>
@@ -24,36 +23,9 @@
             <div class="md-media-lg card-media"></div>
             </md-card-title-media>
             <md-card-actions layout="row" layout-align="end center">
-                <md-button ng-click="vm.addFavorites(film._id)">Add Favorite</md-button>
+                <md-button ng-click="vm.addFavorites(films)">Add Favorite</md-button>
             </md-card-actions>
         </md-card-title>
         </md-card>
     </div>
 </md-content>
-
-<!-- People HTML -->
-<md-content class="md-padding" layout-xs="column" layout="row">
-        <div flex-xs flex-gt-xs="50" layout="column">
-            <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
-            md-theme-watch
-            ng-repeat="people in vm.resourceArray | filter:searchText"
-            ng-if="vm.selectedItem === 'People'">
-            <md-card-title>
-                <md-card-title-text>
-                <span class="md-headline">{{people.name}}</span>
-                <span class="md-subhead"> DOB: {{people.birth_year}}</span>
-                <ul>
-                    <li><label>Sex: {{people.gender}}</li>
-                    <li><label>Hair: {{people.hair_color}}</li>
-                </ul>
-                </md-card-title-text>
-                <md-card-title-media>
-                <div class="md-media-lg card-media"></div>
-                </md-card-title-media>
-                <md-card-actions layout="row" layout-align="end center">
-                    <md-button ng-click="vm.addFavorites(people._id)">Add Favorite</md-button>
-                </md-card-actions>
-            </md-card-title>
-            </md-card>
-        </div>
-    </md-content>

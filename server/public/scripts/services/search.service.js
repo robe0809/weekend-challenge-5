@@ -22,21 +22,8 @@ myApp.service('SearchService', ['$http', function($http){
         .catch(function (response) {
             console.log('error on get films', response);
         });
-    }
-
-    // getPeople through API
-    self.getPeople = function () {
-        $http.get(people)
-        .then(function (response) {
-            self.search.list = response.data.results;
-            console.log('successful get people: ', self.search.list);
-        })
-        .catch(function (response) {
-            console.log('error on get people', response);
-        });
-    }
+    };
     // call functions
-    self.getPeople();
     self.getFilms();
 
 /******************************* Favorites functions********************************/
