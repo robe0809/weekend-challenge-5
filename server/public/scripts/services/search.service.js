@@ -5,22 +5,16 @@ myApp.service('SearchService', ['$http', function($http){
     self.search = {list: []};
     self.favorites = {list: []};
 
-    // const films = "https://swapi.co/api/films/";
-    // const people = "https://swapi.co/api/people/";
-    // const planets = "https://swapi.co/api/planets/";
-    // const species = "https://swapi.co/api/species/";
-    // const starships = "https://swapi.co/api/starships/";
-    // const vehicles = "https://swapi.co/api/vehicles/";
 
     // getFilms through the API
     self.searchResource = function (selectedItem) {
         $http.get(`https://swapi.co/api/${selectedItem}/`)
         .then(function (response) {
             self.search.list = response.data.results;
-            console.log('successful get films: ', self.search.list);
+            console.log('successful get resources: ', self.search.list);
         })
         .catch(function (response) {
-            console.log('error on get films', response);
+            console.log('error on get resources', response);
         });
     };
 
