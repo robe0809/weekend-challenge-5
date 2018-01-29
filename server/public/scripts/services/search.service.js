@@ -5,16 +5,16 @@ myApp.service('SearchService', ['$http', function($http){
     self.search = {list: []};
     self.favorites = {list: []};
 
-    const films = "https://swapi.co/api/films/";
-    const people = "https://swapi.co/api/people/";
-    const planets = "https://swapi.co/api/planets/";
-    const species = "https://swapi.co/api/species/";
-    const starships = "https://swapi.co/api/starships/";
-    const vehicles = "https://swapi.co/api/vehicles/";
+    // const films = "https://swapi.co/api/films/";
+    // const people = "https://swapi.co/api/people/";
+    // const planets = "https://swapi.co/api/planets/";
+    // const species = "https://swapi.co/api/species/";
+    // const starships = "https://swapi.co/api/starships/";
+    // const vehicles = "https://swapi.co/api/vehicles/";
 
     // getFilms through the API
-    self.getFilms = function () {
-        $http.get(films)
+    self.searchResource = function (selectedItem) {
+        $http.get(`https://swapi.co/api/${selectedItem}/`)
         .then(function (response) {
             self.search.list = response.data.results;
             console.log('successful get films: ', self.search.list);
@@ -23,8 +23,6 @@ myApp.service('SearchService', ['$http', function($http){
             console.log('error on get films', response);
         });
     };
-    // call functions
-    self.getFilms();
 
 /******************************* Favorites functions********************************/
     // add favorites to database

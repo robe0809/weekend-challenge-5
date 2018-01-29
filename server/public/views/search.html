@@ -9,7 +9,8 @@
     <div flex-xs flex-gt-xs="50" layout="column">
         <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
         md-theme-watch
-        ng-repeat="films in vm.resourceArray | filter:searchText">
+        ng-if="vm.selectedItem == 'films'"
+        ng-repeat="films in vm.search.list | filter:searchText">
         <md-card-title>
             <md-card-title-text>
             <span class="md-headline">{{films.title}}</span>
@@ -17,6 +18,141 @@
             <ul>
                 <li><label>Director: {{films.director}}</li>
                 <li><label>Producer: {{films.producer}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.addFavorites(films)">Add Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<!-- people HTML -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-if="vm.selectedItem == 'people'"
+        ng-repeat="people in vm.search.list | filter:searchText">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{people.name}}</span>
+            <span class="md-subhead"> DOB: {{people.birth_year}}</span>
+            <ul>
+                <li><label>Hair Color: {{people.hair_color}}</li>
+                <li><label>Sex: {{people.gender}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.addFavorites(films)">Add Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<!-- planets HTML -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-if="vm.selectedItem == 'planets'"
+        ng-repeat="planets in vm.search.list | filter:searchText">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{planets.name}}</span>
+            <span class="md-subhead"> Population: {{planets.population}}</span>
+            <ul>
+                <li><label>Climate: {{planets.climate}}</li>
+                <li><label>Terrain: {{planets.terrain}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.addFavorites(films)">Add Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<!-- species HTML -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-if="vm.selectedItem == 'species'"
+        ng-repeat="species in vm.search.list | filter:searchText">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{species.name}}</span>
+            <span class="md-subhead"> Classification: {{species.classification}}</span>
+            <ul>
+                <li><label>Average Height: {{species.average_height}}</li>
+                <li><label>Language: {{species.language}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.addFavorites(films)">Add Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<!-- vehicles HTML -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-if="vm.selectedItem == 'vehicles'"
+        ng-repeat="vehicles in vm.search.list | filter:searchText">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{vehicles.name}}</span>
+            <span class="md-subhead"> Model: {{vehicles.model}}</span>
+            <ul>
+                <li><label>Passengers: {{vehicles.passengers}}</li>
+                <li><label>Vehicle Class: {{vehicles.vehicle_class}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.addFavorites(films)">Add Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>
+
+<!-- starships HTML -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-if="vm.selectedItem == 'starships'"
+        ng-repeat="starships in vm.search.list | filter:searchText">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{starships.name}}</span>
+            <span class="md-subhead"> model: {{starships.model}}</span>
+            <ul>
+                <li><label>passengers: {{starships.passengers}}</li>
+                <li><label>Class: {{starships.starship_class}}</li>
             </ul>
             </md-card-title-text>
             <md-card-title-media>
