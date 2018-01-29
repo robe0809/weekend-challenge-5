@@ -1,0 +1,31 @@
+<!-- dropDown menu containing resources -->
+<select ng-model="vm.selectedItem" ng-change="vm.searchResource(vm.selectedItem)">
+    <option ng-repeat="resource in vm.resources">{{resource}}</option>
+</select>
+<input type="text" ng-model="searchText" placeholder="Keywords" >
+
+<!-- films HTML -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-repeat="films in vm.resourceArray | filter:searchText">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{films.title}}</span>
+            <span class="md-subhead"> Released: {{films.release_date | date}}</span>
+            <ul>
+                <li><label>Director: {{films.director}}</li>
+                <li><label>Producer: {{films.producer}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.addFavorites(films)">Add Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>

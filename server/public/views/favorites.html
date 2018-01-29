@@ -1,0 +1,26 @@
+
+<!-- Films -->
+<md-content class="md-padding" layout-xs="column" layout="row">
+    <div flex-xs flex-gt-xs="50" layout="column">
+        <md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" 
+        md-theme-watch
+        ng-repeat="films in vm.favorites.list">
+        <md-card-title>
+            <md-card-title-text>
+            <span class="md-headline">{{films.title}}</span>
+            <span class="md-subhead"> Released: {{films.release_date}}</span>
+            <ul>
+                <li><label>Director: </label>{{films.director}}</li>
+                <li><label>Producer: </label>{{films.producer}}</li>
+            </ul>
+            </md-card-title-text>
+            <md-card-title-media>
+            <div class="md-media-lg card-media"></div>
+            </md-card-title-media>
+            <md-card-actions layout="row" layout-align="end center">
+                <md-button ng-click="vm.removeFavorites(films._id)">Remove Favorite</md-button>
+            </md-card-actions>
+        </md-card-title>
+        </md-card>
+    </div>
+</md-content>
