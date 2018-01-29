@@ -1,16 +1,10 @@
-myApp.controller('favoritesController', ['SwapiService', function (SwapiService) {
+myApp.controller('favoritesController', ['SearchService', function (SearchService) {
 
     var self = this;
-    self.favorites = SwapiService.favorites;
+    self.favorites = SearchService.favorites;
     
-    self.addFavorites = function (favorites) {
-        console.log('yea', self.favorites.list);
-        self.favorites = self.favorites.list;
+    self.removeFavorites = function (favorite) {
+        SearchService.removeFavorites(favorite);
     }
-    self.removeFavorites = function (favorites) {
-        SwapiService.removeFavorites(favorites);
-        self.favorites = self.favorites.list
-    }
-    
 
 }]);

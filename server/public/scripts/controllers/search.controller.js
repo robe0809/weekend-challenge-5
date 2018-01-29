@@ -1,14 +1,15 @@
-myApp.controller('searchController', ['SwapiService', function (SwapiService) {
+myApp.controller('searchController', ['SearchService', function (SearchService) {
 
     var self = this;
-    self.swapi = SwapiService.swapi;
+    self.search = SearchService.search;
     self.resources = ["Films", "People", "Planets", "Species", "Starships", "Vehicles" ];
     
     self.searchResource = function (resource) { 
-        self.films = self.swapi.list;
+        self.resourceArray = self.search.list;
     }
 
     self.addFavorites = function (favorites) {
-        SwapiService.addFavorites(favorites);
+        SearchService.addFavorites(favorites);
     }
+
 }]);
